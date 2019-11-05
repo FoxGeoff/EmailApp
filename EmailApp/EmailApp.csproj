@@ -5,10 +5,12 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Folder Include="Features\Messaging\" />
     <Folder Include="wwwroot\" />
   </ItemGroup>
 
   <ItemGroup>
+    <PackageReference Include="MailKit" Version="2.4.0.1" />
     <PackageReference Include="Microsoft.AspNetCore.App" />
   </ItemGroup>
 
