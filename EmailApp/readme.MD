@@ -1,5 +1,7 @@
 ﻿# Sending Email Using Mailkit
 
+* https://www.excitoninteractive.com/articles/read/69/asp-net-core2/sending-email-using-mailkit
+
 ## Add: MailKit
 
 * MailKit is an Open Source cross-platform .NET mail-client library that is based on MimeKit and optimized for mobile devices.
@@ -18,3 +20,8 @@ Features include:
 ## Add: File Features.Messaging.Attachment.cs
 
 *  Our attachment class will take care of holding the data that we want to attach to our email as well as convert it to a memory stream that will allow us to actually attach it to our email. 
+
+## Add: File Features.Messaging.MessageService.cs
+
+* The interface for our message service that specifies the fundamental method of sending an email. 
+* Our message service class that will be responsible for taking in the required information and sending out a corresponding email. 
