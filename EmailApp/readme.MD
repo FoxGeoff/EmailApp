@@ -16,3 +16,5 @@ Features include:
 * Microsoft TNEF support via MimeKit.
 
 ## Add: File Features.Messaging.Attachment.cs
+
+*  Our attachment class will take care of holding the data that we want to attach to our email as well as convert it to a memory stream that will allow us to actually attach it to our email. 
