@@ -25,3 +25,7 @@ Features include:
 
 * The interface for our message service that specifies the fundamental method of sending an email. 
 * Our message service class that will be responsible for taking in the required information and sending out a corresponding email. 
+
+## Set up: dependency injection
+
+*  Configuring our concrete message service to be injected whenever we ask for a class that implements the interface. 
