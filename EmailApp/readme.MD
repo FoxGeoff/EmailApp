@@ -2,7 +2,7 @@
 
 * https://www.excitoninteractive.com/articles/read/69/asp-net-core2/sending-email-using-mailkit
 
-## Add: MailKit
+## Step #4: Add: MailKit
 
 * MailKit is an Open Source cross-platform .NET mail-client library that is based on MimeKit and optimized for mobile devices.
 
@@ -29,3 +29,32 @@ Features include:
 ## Set up: dependency injection
 
 *  Configuring our concrete message service to be injected whenever we ask for a class that implements the interface. 
+
+## Step #5: Add: Emailing Exceptions
+
+* In this article we will create both a template and model that we can use to generate an email from an exception. With that in place we will then create a middleware that we can use to send an email automatically if our application encounters an unhandled exception. And of course to do this the last step will be to add our new middleware to the pipeline within our Startup class.
+
+## Correct: location of the exception email
+
+* Correcting the error of specifying the location of the exception email location. 
+
+```
+...
+namespace WebUi.Features.Messaging
+{
+    public class MessageService : IMessageService
+    {
+        ...
+        public async Task SendExceptionEmailAsync(Exception e, HttpContext context)
+        {
+            var message = _viewRenderer.Render("Features/Messaging/Email/ExceptionEmail", new ExceptionEmailModel(e, context));
+            ...
+        }
+    }
+}
+```
+
+## Add: Email files
+
+*  The model that we will use to hold the information that we want to include in our email. 
+*  The code that will be used to generate the actual body of our exception email. 
