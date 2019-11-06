@@ -72,3 +72,12 @@ namespace WebUi.Features.Messaging
     }
 }
 ```
+* Our message service now makes it easier to send emails to our support address as well as handling sending emails for any exceptions that we pass it. 
+
+## Add: Notification of any exceptions
+
+* The exception logging middleware will take care of automatically sending an email whenever an exception is thrown. 
+
+## Add: the middleware to the pipeline
+
+* v
