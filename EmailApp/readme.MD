@@ -81,3 +81,9 @@ namespace WebUi.Features.Messaging
 ## Add: The middleware to the pipeline
 
 * Adding the exception logging middleware to the pipeline. 
+
+## Step #3: View Location Expander and View Renderer 
+
+* In this article we will expand the locations that the razor view engine will search to find razor views and we will create a razor view renderer that we can inject into our controllers and pages. We are doing this for a few different reasons but the two we will be exploring in just a little while is sending emails and indexing the content of our application for full text searching.
+
+##
