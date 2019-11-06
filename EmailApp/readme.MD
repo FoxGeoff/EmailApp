@@ -146,3 +146,10 @@ namespace WebUi
 <p>This is a test</p>
 ```
 *  Our test razor page which simply takes in a string as the model.
+
+## Display: our test to the world
+
+* Pages.Index.cshtml.cs
+* Adjusting our index page to test our view renderer. 
+* Pages.Index.cshtml
+*  Updating the html of our index page to display our test string. 
