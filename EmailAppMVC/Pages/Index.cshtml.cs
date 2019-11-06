@@ -21,6 +21,8 @@ namespace WebUi.Pages
 
         public void OnGet()
         {
+            throw new System.ArgumentException("Parameter cannot be null", "original");
+
             ViewRendererTest = _vr.Render("Features/Email/Test", "Hello World");
         }
     }
