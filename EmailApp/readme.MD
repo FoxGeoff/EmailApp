@@ -115,3 +115,34 @@ namespace WebUi
 
 * The interface that we will implement for our view renderer. 
 *  Our view renderer that we will be able to inject into our controllers and pages when needed. 
+
+## Add: a service
+
+```
+...
+using WebUi.Infrastructure;
+
+namespace WebUi
+{
+    public class Startup
+    {
+        ...
+        public void ConfigureServices(IServiceCollection services)
+        {
+            ...
+            services.AddTransient<IViewRenderer, ViewRenderer>();
+        }
+        ...
+    }
+}
+```
+## Test Run: Test.cshtml
+
+```
+@model string
+
+<h1>@Model</h1>
+
+<p>This is a test</p>
+```
+*  Our test razor page which simply takes in a string as the model.

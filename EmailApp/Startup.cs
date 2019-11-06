@@ -28,6 +28,9 @@ namespace EmailApp
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+
+            services.AddTransient<IViewRenderer, ViewRenderer>();
+
             services.Configure<RazorViewEngineOptions>(x => x.ViewLocationExpanders.Add(new ViewLocationExpander()));
 
             services.AddTransient<IMessageService, MessageService>();
