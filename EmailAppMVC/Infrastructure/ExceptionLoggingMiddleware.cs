@@ -29,12 +29,12 @@ namespace WebUi.Infrastructure
             {
                 if (_env.IsDevelopment())
                 {
-                    throw;
+                    //throw;
                 }
 
                 await _messageService.SendExceptionEmailAsync(e, context);
                 // Redirect the user to whatever the appropriate url for an unhandled exception is for your application
-                context.Response.Redirect("https://localhost:44368/500");
+                context.Response.Redirect("https://localhost:44368/about");
             }
         }
     }

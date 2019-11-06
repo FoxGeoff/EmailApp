@@ -68,7 +68,9 @@ namespace WebUi.Features.Messaging
 
         public async Task SendExceptionEmailAsync(Exception e, HttpContext context)
         {
-            var message = _viewRenderer.Render("Features/Messaging/Email/ExceptionEmail", new ExceptionEmailModel(e, context));
+            //Orginal: "Features/Messaging/Email/ExceptionEmail" =>Error: Couldn't find view 'Features/Messaging/Email/ExceptionEmail'
+            var message = _viewRenderer.Render("Features/Email/ExceptionEmail", new ExceptionEmailModel(e, context));
+
             await SendEmailToSupportAsync("Exception", message);
         }
     }
