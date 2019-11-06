@@ -111,3 +111,7 @@ namespace WebUi
     }
 }
 ```
+## Add: An injectable view renderer
+
+* The interface that we will implement for our view renderer. 
+*  Our view renderer that we will be able to inject into our controllers and pages when needed. 
