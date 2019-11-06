@@ -1,4 +1,6 @@
-﻿using System.Threading.Tasks;
+﻿using Microsoft.AspNetCore.Http;
+using System;
+using System.Threading.Tasks;
 
 namespace WebUi.Features.Messaging
 {
@@ -12,5 +14,8 @@ namespace WebUi.Features.Messaging
             string subject,
             string message,
             params Attachment[] attachments);
+
+        Task SendEmailToSupportAsync(string subject, string message);
+        Task SendExceptionEmailAsync(Exception e, HttpContext context);
     }
 }

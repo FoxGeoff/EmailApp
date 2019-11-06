@@ -58,3 +58,17 @@ namespace WebUi.Features.Messaging
 
 *  The model that we will use to hold the information that we want to include in our email. 
 *  The code that will be used to generate the actual body of our exception email. 
+
+## Update: our message service
+
+```
+namespace WebUi.Features.Messaging
+{
+    public interface IMessageService
+    {
+        ...
+        Task SendEmailToSupportAsync(string subject, string message);
+        Task SendExceptionEmailAsync(Exception e, HttpContext context);
+    }
+}
+```

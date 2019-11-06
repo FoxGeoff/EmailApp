@@ -1,11 +1,23 @@
-﻿using System.Threading.Tasks;
+﻿using System;
+using System.Threading.Tasks;
 using MailKit.Net.Smtp;
+using Microsoft.AspNetCore.Http;
 using MimeKit;
+
+using WebUi.Features.Messaging.Email;
+using WebUi.Infrastructure;
 
 namespace WebUi.Features.Messaging
 {
     public class MessageService : IMessageService
     {
+        private readonly IViewRenderer _viewRenderer;
+
+        public MessageService(IViewRenderer viewRenderer)
+        {
+            _viewRenderer = viewRenderer;
+        }
+
         public async Task SendEmailAsync(
             string fromDisplayName,
             string fromEmailAddress,
@@ -47,6 +59,17 @@ namespace WebUi.Features.Messaging
                 await client.SendAsync(email).ConfigureAwait(false);
                 await client.DisconnectAsync(true).ConfigureAwait(false);
             }
+        }
+
+        public async Task SendEmailToSupportAsync(string subject, string message)
+        {
+            await SendEmailAsync("No Reply", "no-reply@yourdomain.com", "Support", "support@yourdomain.com", subject, message);
+        }
+
+        public async Task SendExceptionEmailAsync(Exception e, HttpContext context)
+        {
+            var message = _viewRenderer.Render("Features/Messaging/Email/ExceptionEmail", new ExceptionEmailModel(e, context));
+            await SendEmailToSupportAsync("Exception", message);
         }
     }
 }
