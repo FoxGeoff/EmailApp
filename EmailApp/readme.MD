@@ -86,4 +86,28 @@ namespace WebUi.Features.Messaging
 
 * In this article we will expand the locations that the razor view engine will search to find razor views and we will create a razor view renderer that we can inject into our controllers and pages. We are doing this for a few different reasons but the two we will be exploring in just a little while is sending emails and indexing the content of our application for full text searching.
 
-##
+## Add: Look for razor files outside of the views folder
+
+* ViewLocationExpander
+* Creating a view expander so that we are able to specify and arbitrary location for our razor files. 
+
+## Add: Register our expander
+
+```
+...
+using WebUi.Infrastructure;
+
+namespace WebUi
+{
+    public class Startup
+    {
+        ...
+        public void ConfigureServices(IServiceCollection services)
+        {
+            ...
+            services.Configure<RazorViewEngineOptions>(x => x.ViewLocationExpanders.Add(new ViewLocationExpander()));
+        }
+        ...
+    }
+}
+```
