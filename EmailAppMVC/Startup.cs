@@ -10,6 +10,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Razor;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using WebUi.Features.Messaging;
 using WebUi.Infrastructure;
 
 namespace EmailAppMVC
@@ -31,6 +32,8 @@ namespace EmailAppMVC
 
             services.Configure<RazorViewEngineOptions>(x => x.ViewLocationExpanders.Add(new ViewLocationExpander()));
 
+            services.AddTransient<IMessageService, MessageService>();
+
             services.Configure<CookiePolicyOptions>(options =>
             {
                 // This lambda determines whether user consent for non-essential cookies is needed for a given request.
@@ -51,10 +54,11 @@ namespace EmailAppMVC
             }
             else
             {
-                app.UseExceptionHandler("/Error");
+                //app.UseExceptionHandler("/Error"); <-- Commented out
                 app.UseHsts();
             }
 
+            app.UseMiddleware<ExceptionLoggingMiddleware>();
             app.UseHttpsRedirection();
             app.UseStaticFiles();
             app.UseCookiePolicy();

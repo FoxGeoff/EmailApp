@@ -7,3 +7,5 @@
 
 * Now the html is being displayed the way we intended it to be. 
 
+##  Add: The exception logging middleware to the pipeline. 
+
