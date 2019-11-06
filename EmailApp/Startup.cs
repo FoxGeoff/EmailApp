@@ -11,6 +11,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 using WebUi.Features.Messaging;
+using WebUi.Infrastructure;
 
 namespace EmailApp
 {
@@ -41,7 +42,12 @@ namespace EmailApp
             else
             {
                 app.UseHsts();
+
+                //app.UseExceptionHandler("/Error"); <-- Commented out
             }
+
+
+            app.UseMiddleware<ExceptionLoggingMiddleware>();
 
             app.UseHttpsRedirection();
             app.UseMvc();

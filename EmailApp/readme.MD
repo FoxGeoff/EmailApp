@@ -78,6 +78,6 @@ namespace WebUi.Features.Messaging
 
 * The exception logging middleware will take care of automatically sending an email whenever an exception is thrown. 
 
-## Add: the middleware to the pipeline
+## Add: The middleware to the pipeline
 
-* v
+* Adding the exception logging middleware to the pipeline. 
